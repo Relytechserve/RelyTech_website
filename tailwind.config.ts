@@ -1,6 +1,15 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  safelist: [
+    "from-amber-100", "to-orange-50", "border-amber-200/80",
+    "from-primary-100", "to-blue-50", "border-primary-200/80",
+    "from-emerald-100", "to-teal-50", "border-emerald-200/80",
+    "from-sky-100", "border-sky-200/80",
+    "from-violet-100", "to-purple-50", "border-violet-200/80",
+    "from-rose-100", "to-pink-50", "border-rose-200/80",
+    "lg:col-span-2",
+  ],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -35,6 +44,7 @@ const config: Config = {
       animation: {
         "fade-in": "fadeIn 0.6s ease-out forwards",
         "slide-up": "slideUp 0.6s ease-out forwards",
+        "marquee": "marquee 30s linear infinite",
       },
       keyframes: {
         fadeIn: {
@@ -44,6 +54,10 @@ const config: Config = {
         slideUp: {
           "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
     },

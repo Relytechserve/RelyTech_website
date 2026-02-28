@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 const navLinks = [
@@ -12,6 +13,8 @@ const navLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
+const LOGO_URL = "https://relytechserve.com/wp-content/uploads/2024/06/relytech-logo.jpg";
+
 export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -21,9 +24,16 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16 lg:h-20">
           <Link
             href="/"
-            className="text-xl font-bold text-navy-900 tracking-tight hover:text-primary-600 transition-colors"
+            className="relative flex items-center shrink-0 h-10 w-28 sm:w-32 lg:h-12 lg:w-40"
           >
-            Rely Tech Serve
+            <Image
+              src={LOGO_URL}
+              alt="Rely Tech Serve"
+              fill
+              className="object-contain object-left"
+              sizes="(max-width: 640px) 112px, (max-width: 1024px) 128px, 160px"
+              priority
+            />
           </Link>
 
           <div className="hidden lg:flex items-center gap-8">

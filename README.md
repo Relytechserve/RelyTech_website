@@ -44,11 +44,20 @@ Modern, professional website for Rely Tech Serve — a technology consulting com
 
 ## Contact Form
 
-The contact form currently logs submissions to the console. To store leads in a database:
+The contact form sends submissions to **info@relytechserve.com** via [Formspree](https://formspree.io).
 
-- Add a backend API route (e.g. `src/app/api/contact/route.ts`)
-- Connect to your database (Supabase, PlanetScale, etc.) or use a form service (Formspree, Netlify Forms)
-- Update `ContactPage` to POST to your API
+**Setup:**
+
+1. Go to [formspree.io](https://formspree.io) and create a free account
+2. Create a new form and set **info@relytechserve.com** as the recipient
+3. Copy your form ID from the endpoint (e.g. `https://formspree.io/f/xyzabcde` → form ID is `xyzabcde`)
+4. Create `.env.local` in the project root:
+   ```
+   NEXT_PUBLIC_FORMSPREE_FORM_ID=xyzabcde
+   ```
+5. Restart the dev server: `npm run dev`
+
+For production (Vercel, etc.), add `NEXT_PUBLIC_FORMSPREE_FORM_ID` to your environment variables.
 
 ## Deployment
 

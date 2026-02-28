@@ -4,7 +4,7 @@ import { useState } from "react";
 import { EnvelopeIcon, BuildingOfficeIcon } from "@heroicons/react/24/outline";
 
 export default function ContactPage() {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error" | "not_configured">("idle");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,13 +16,35 @@ export default function ContactPage() {
     e.preventDefault();
     setStatus("loading");
 
-    // Simulate form submission - replace with actual backend/database integration
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const formId = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID;
 
-    // For now, log to console and show success
-    console.log("Contact form submission:", { ...formData, timestamp: new Date().toISOString() });
-    setStatus("success");
-    setFormData({ name: "", email: "", company: "", message: "" });
+    if (!formId || formId === "your_form_id_here") {
+      setStatus("not_configured");
+      return;
+    }
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${formId}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          message: formData.message,
+          _subject: `Contact from ${formData.name} (${formData.company || "No company"})`,
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Form submission failed");
+      }
+      setStatus("success");
+      setFormData({ name: "", email: "", company: "", message: "" });
+    } catch (err) {
+      console.error("Contact form error:", err);
+      setStatus("error");
+    }
   };
 
   const handleChange = (
@@ -126,9 +148,22 @@ export default function ContactPage() {
                   Thank you! Your message has been received. We&apos;ll be in touch soon.
                 </p>
               )}
+              {status === "not_configured" && (
+                <p className="mt-4 text-amber-600 font-medium">
+                  Form not configured. Please{" "}
+                  <a href="mailto:info@relytechserve.com?subject=Website%20Contact&body=Name:%20%0D%0AEmail:%20%0D%0ACompany:%20%0D%0AMessage:%20" className="underline">
+                    email us directly
+                  </a>
+                  .
+                </p>
+              )}
               {status === "error" && (
                 <p className="mt-4 text-red-600 font-medium">
-                  Something went wrong. Please try again or email us directly.
+                  Something went wrong. Please try again or{" "}
+                  <a href="mailto:info@relytechserve.com" className="underline">
+                    email us directly
+                  </a>
+                  .
                 </p>
               )}
             </div>

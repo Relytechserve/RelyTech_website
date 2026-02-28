@@ -3,64 +3,56 @@
 import { useState } from "react";
 import Link from "next/link";
 import {
-  Cog6ToothIcon,
-  CpuChipIcon,
-  ShoppingCartIcon,
+  CloudArrowUpIcon,
+  ViewfinderCircleIcon,
   CodeBracketIcon,
-  ArrowPathIcon,
-  PuzzlePieceIcon,
-  ChartBarSquareIcon,
+  CircleStackIcon,
+  ChartBarIcon,
+  CubeIcon,
 } from "@heroicons/react/24/outline";
 
 const services = [
   {
-    icon: Cog6ToothIcon,
-    title: "Technology Consulting",
-    shortDesc: "Strategic guidance for your technology roadmap.",
+    icon: CloudArrowUpIcon,
+    title: "Cloud Engineering",
+    shortDesc: "Organisations realise and develop their full potential to compete.",
     fullDesc:
-      "We provide strategic technology consulting to help you make informed decisions about your digital investments. From technology audits to roadmap planning, we align technology with business objectives.",
+      "Rely Tech helps organisations realise and develop their full potential to compete in the digital age. Our cloud engineering solutions enable scalable, secure, and efficient infrastructure that drives business growth.",
   },
   {
-    icon: CpuChipIcon,
-    title: "Automation & AI Solutions",
-    shortDesc: "Streamline operations with intelligent automation.",
+    icon: ViewfinderCircleIcon,
+    title: "Immersive Engineering",
+    shortDesc: "Immersive, interactive & imaginative experiences.",
     fullDesc:
-      "Harness the power of automation and AI to reduce manual work, improve accuracy, and scale your operations. From workflow automation to AI-powered insights, we deliver solutions that save time and drive efficiency.",
-  },
-  {
-    icon: ShoppingCartIcon,
-    title: "eCommerce & Marketplace Integration",
-    shortDesc: "Connect, optimize, and scale your eCommerce.",
-    fullDesc:
-      "We specialize in eCommerce platforms and marketplace integrations. Whether you need multi-channel selling, API integrations, or custom checkout flows, we help you grow your online presence.",
+      "Welcome to the new game changers in today's connected world - Immersive, Interactive & imaginative experiences. We create cutting-edge AR, VR, and 3D solutions that transform how users interact with digital content.",
   },
   {
     icon: CodeBracketIcon,
-    title: "Custom Software Development",
-    shortDesc: "Tailored solutions for unique business needs.",
+    title: "Full Stack Development",
+    shortDesc: "Strong technology expertise in full stack development.",
     fullDesc:
-      "Build software that fits your exact requirements. Our custom development covers web apps, mobile solutions, integrations, and enterprise systems—all designed for performance and maintainability.",
+      "Rely Tech has strong technology expertise and combined knowledge of working in full stack development. From frontend to backend, we deliver end-to-end solutions that are performant, scalable, and maintainable.",
   },
   {
-    icon: ArrowPathIcon,
-    title: "Digital Transformation",
-    shortDesc: "Modernize your business for the digital era.",
+    icon: CircleStackIcon,
+    title: "Data Management",
+    shortDesc: "Immersive, interactive & imaginative data solutions.",
     fullDesc:
-      "Navigate the journey from legacy systems to modern, agile technology. We guide you through process redesign, technology adoption, and cultural change to achieve lasting digital transformation.",
+      "We help businesses harness the power of their data with robust data management solutions. From data architecture to pipelines and analytics, we ensure your data flows efficiently and drives informed decisions.",
   },
   {
-    icon: PuzzlePieceIcon,
-    title: "System Integration",
-    shortDesc: "Connect your tools and data seamlessly.",
+    icon: ChartBarIcon,
+    title: "Engineering Analytics",
+    shortDesc: "Big data insights and business analytics.",
     fullDesc:
-      "Integrate disparate systems to create a unified technology ecosystem. We connect CRMs, ERPs, eCommerce platforms, and custom applications for a seamless flow of data across your organization.",
+      "Rely Tech's big data insights and business analytics have helped companies increase competitiveness. We turn raw data into actionable insights that drive strategy and operational excellence.",
   },
   {
-    icon: ChartBarSquareIcon,
-    title: "Data & Analytics",
-    shortDesc: "Turn data into actionable insights.",
+    icon: CubeIcon,
+    title: "Blockchain Development",
+    shortDesc: "Secure and transparent business operations.",
     fullDesc:
-      "Make data-driven decisions with analytics, dashboards, and reporting solutions. We help you collect, process, and visualize data to uncover opportunities and optimize performance.",
+      "Leveraging blockchain technology for secure and transparent business operations. We build smart contracts, DApps, and blockchain integrations that add trust and efficiency to your processes.",
   },
 ];
 
@@ -74,7 +66,8 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold text-white">Our Services</h1>
           <p className="mt-4 text-xl text-slate-300 max-w-2xl">
-            End-to-end technology solutions designed for your business outcomes.
+            Comprehensive technology solutions for your business. Cloud, Full Stack, Analytics,
+            Immersive Engineering, Data Management & Blockchain.
           </p>
         </div>
       </section>
