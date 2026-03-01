@@ -16,12 +16,9 @@ export default function ContactPage() {
     e.preventDefault();
     setStatus("loading");
 
-    const formId = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID;
-
-    if (!formId || formId === "your_form_id_here") {
-      setStatus("not_configured");
-      return;
-    }
+    const envFormId = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID;
+    const formId =
+      envFormId && envFormId !== "your_form_id_here" ? envFormId : "mzdawnlj";
 
     try {
       const res = await fetch(`https://formspree.io/f/${formId}`, {
